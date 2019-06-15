@@ -1,0 +1,35 @@
+{% extends "layout.jinja2" %}
+
+{% block content %}
+<section id="post-list">
+  {% for video in videos %}
+  <article>
+    <header>
+      <div class="header">
+        <div class="user-info">
+          <h3>{{ video.name }}</h3>
+          <h6 class="place">{{ video.theme }}</h6>
+        </div>
+        <div>
+          <h3>{{ video.likes }} likes</h3>
+        </div>
+      </div>
+    </header>
+    <footer>
+      <div class="actions">
+        <form method="POST" action="/videos/{{video._id}}/like">
+          <button type="submit">
+            <i class="fa fa-thumbs-up fa-3x"></i>
+          </button>
+        </form>
+        <form method="POST" action="/videos/{{video._id}}/deslike">
+          <button type="submit">
+            <i class="fa fa-thumbs-down fa-3x"></i>
+          </button>
+        </form>
+      </div>
+    </footer>
+  </article>
+  {% endfor %}
+</section>
+{% endblock content %}
