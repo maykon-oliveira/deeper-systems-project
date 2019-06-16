@@ -10,6 +10,7 @@ def form_video(request):
             "name": name,
             "theme": theme,
             "likes": 0,
+            "deslikes": 0,
             "createdAt": datetime.datetime.utcnow()
         }
         request.db['videos'].insert_one(video)

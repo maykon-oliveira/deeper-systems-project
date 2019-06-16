@@ -2,6 +2,7 @@
 
 {% block content %}
 <section id="post-list">
+  {% if not sorted %}
   {% for video in videos %}
   <article>
     <header>
@@ -12,6 +13,7 @@
         </div>
         <div>
           <h3>{{ video.likes }} likes</h3>
+          <h3>{{ video.deslikes }} unlikes</h3>
         </div>
       </div>
     </header>
@@ -31,5 +33,20 @@
     </footer>
   </article>
   {% endfor %}
+  {% endif %}
+  {% if sorted %}
+  {% for video in videos %}
+  <article>
+    <header>
+      <div class="header">
+        <div class="user-info">
+          <h3>{{ video.theme }}</h3>
+          <h6 class="place">{{ video.score }}</h6>
+        </div>
+      </div>
+    </header>
+  </article>
+  {% endfor %}
+  {% endif %}
 </section>
 {% endblock content %}
