@@ -1,4 +1,5 @@
 #!/bin/bash
 set -e
-python3 setup.py develop
-python3 runapp.py
+pip install --upgrade pip setuptools
+pip install -e .
+pserve development.ini
